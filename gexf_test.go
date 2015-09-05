@@ -55,11 +55,11 @@ func TestHelloWorld(t *testing.T) {
 		DefEdgeType: Directed,
 		Nodes: Nodes{
 			Node: []Node{
-				Node{
+				{
 					ID:    "0",
 					Label: "Hello",
 				},
-				Node{
+				{
 					ID:    "1",
 					Label: "World",
 				},
@@ -67,7 +67,7 @@ func TestHelloWorld(t *testing.T) {
 		},
 		Edges: Edges{
 			Edge: []Edge{
-				Edge{
+				{
 					ID:     "0",
 					Source: "0",
 					Target: "1",
@@ -120,17 +120,17 @@ func TestAttributes(t *testing.T) {
 		Attrs: &Attributes{
 			Class: ClassNode,
 			Attribute: []Attribute{
-				Attribute{
+				{
 					ID:    "0",
 					Title: "url",
 					Type:  "string",
 				},
-				Attribute{
+				{
 					ID:    "1",
 					Title: "indegree",
 					Type:  "float",
 				},
-				Attribute{
+				{
 					ID:      "2",
 					Title:   "frog",
 					Type:    "boolean",
@@ -140,32 +140,32 @@ func TestAttributes(t *testing.T) {
 		},
 		Nodes: Nodes{
 			Node: []Node{
-				Node{
+				{
 					ID:    "0",
 					Label: "Gephi",
 					AttValues: &AttValues{
 						AttValue: []AttValue{
-							AttValue{
+							{
 								For:   "0",
 								Value: "http://gephi.org",
 							},
-							AttValue{
+							{
 								For:   "2",
 								Value: "false",
 							},
 						},
 					},
 				},
-				Node{
+				{
 					ID:    "1",
 					Label: "Webatlas",
 					AttValues: &AttValues{
 						AttValue: []AttValue{
-							AttValue{
+							{
 								For:   "1",
 								Value: "2",
 							},
-							AttValue{
+							{
 								For:   "2",
 								Value: "true",
 							},
