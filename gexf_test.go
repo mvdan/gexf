@@ -11,7 +11,7 @@ import (
 )
 
 func doTest(t *testing.T, enc string, doc *Doc) {
-	got := &Doc{}
+	got := New()
 	if err := xml.Unmarshal([]byte(enc), got); err != nil {
 		t.Errorf("Could not unmarshal document: %v", err)
 	}
@@ -171,6 +171,43 @@ func TestAttributes(t *testing.T) {
 							},
 						},
 					},
+				},
+			},
+		},
+	}
+	doTest(t, enc, doc)
+}
+
+func TestViz(t *testing.T) {
+	enc := `<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
+	<meta lastmodifieddate="2009-03-20">
+		<creator>Gephi.org</creator>
+		<description>A hello world! file</description>
+	</meta>
+	<graph>
+		<nodes>
+			<node id="0" label="Hello">
+				<size xmlns="http://www.gexf.net/1.2draft/viz" value="20.5"></size>
+			</node>
+		</nodes>
+		<edges></edges>
+	</graph>
+</gexf>`
+	doc := New()
+	doc.Meta = Meta{
+		LastModified: Date{time.Date(2009, time.March, 20, 0, 0, 0, 0, time.UTC)},
+		Creator:      "Gephi.org",
+		Description:  "A hello world! file",
+	}
+	doc.Graph = Graph{
+		Mode:        Static,
+		DefEdgeType: Directed,
+		Nodes: Nodes{
+			Node: []Node{
+				{
+					ID:    "0",
+					Label: "Hello",
+					Size:  &Size{Value: 20.5},
 				},
 			},
 		},

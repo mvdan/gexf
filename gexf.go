@@ -182,6 +182,25 @@ type Node struct {
 	ID        string     `xml:"id,attr"`
 	Label     string     `xml:"label,attr,omitempty"`
 	AttValues *AttValues `xml:"attvalues,omiempty"`
+	Size      *Size      `xml:"http://www.gexf.net/1.2draft/viz size,omitempty"`
+	Pos       *Pos       `xml:"http://www.gexf.net/1.2draft/viz position,omitempty"`
+	Color     *Color     `xml:"http://www.gexf.net/1.2draft/viz color,omitempty"`
+}
+
+type Size struct {
+	Value float64 `xml:"value,attr"`
+}
+
+type Pos struct {
+	X float64 `xml:"x,attr"`
+	Y float64 `xml:"y,attr"`
+	Z float64 `xml:"z,attr"`
+}
+
+type Color struct {
+	R uint8 `xml:"r,attr"`
+	G uint8 `xml:"g,attr"`
+	B uint8 `xml:"b,attr"`
 }
 
 type AttValues struct {
