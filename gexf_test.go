@@ -36,11 +36,17 @@ func TestHelloWorld(t *testing.T) {
 	</meta>
 	<graph>
 		<nodes>
-			<node id="0" label="Hello"></node>
-			<node id="1" label="World"></node>
+			<node id="0" label="Hello">
+				<attvalues></attvalues>
+			</node>
+			<node id="1" label="World">
+				<attvalues></attvalues>
+			</node>
 		</nodes>
 		<edges>
-			<edge id="0" source="0" target="1"></edge>
+			<edge id="0" source="0" target="1">
+				<attvalues></attvalues>
+			</edge>
 		</edges>
 	</graph>
 </gexf>`
@@ -53,7 +59,7 @@ func TestHelloWorld(t *testing.T) {
 	doc.Graph = Graph{
 		Mode:    Static,
 		DefEdge: Directed,
-		Nodes: &[]Node{
+		Nodes: []Node{
 			{
 				ID:    "0",
 				Label: "Hello",
@@ -63,7 +69,7 @@ func TestHelloWorld(t *testing.T) {
 				Label: "World",
 			},
 		},
-		Edges: &[]Edge{
+		Edges: []Edge{
 			{
 				ID:     "0",
 				Source: "0",
@@ -102,6 +108,7 @@ func TestAttributes(t *testing.T) {
 				</attvalues>
 			</node>
 		</nodes>
+		<edges></edges>
 	</graph>
 </gexf>`
 	doc := New()
@@ -135,11 +142,11 @@ func TestAttributes(t *testing.T) {
 				},
 			},
 		},
-		Nodes: &[]Node{
+		Nodes: []Node{
 			{
 				ID:    "0",
 				Label: "Gephi",
-				Attrs: &[]AttrVal{
+				Attrs: []AttrVal{
 					{
 						For:   "0",
 						Value: "http://gephi.org",
@@ -153,7 +160,7 @@ func TestAttributes(t *testing.T) {
 			{
 				ID:    "1",
 				Label: "Webatlas",
-				Attrs: &[]AttrVal{
+				Attrs: []AttrVal{
 					{
 						For:   "1",
 						Value: "2",
@@ -178,9 +185,11 @@ func TestViz(t *testing.T) {
 	<graph>
 		<nodes>
 			<node id="0" label="Hello">
+				<attvalues></attvalues>
 				<size xmlns="http://www.gexf.net/1.2draft/viz" value="20.5"></size>
 			</node>
 		</nodes>
+		<edges></edges>
 	</graph>
 </gexf>`
 	doc := New()
@@ -192,7 +201,7 @@ func TestViz(t *testing.T) {
 	doc.Graph = Graph{
 		Mode:    Static,
 		DefEdge: Directed,
-		Nodes: &[]Node{
+		Nodes: []Node{
 			{
 				ID:    "0",
 				Label: "Hello",

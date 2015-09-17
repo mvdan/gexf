@@ -65,8 +65,8 @@ type Graph struct {
 	DefEdge EdgeType  `xml:"defaultedgetype,attr,omitempty"`
 
 	Attrs []ClassAttrs `xml:"attributes,omitempty"`
-	Nodes *[]Node      `xml:"nodes>node,omitempty"`
-	Edges *[]Edge      `xml:"edges>edge,omitempty"`
+	Nodes []Node       `xml:"nodes>node,omitempty"`
+	Edges []Edge       `xml:"edges>edge,omitempty"`
 }
 
 type EdgeType int
@@ -169,12 +169,12 @@ type Attr struct {
 }
 
 type Node struct {
-	ID    string     `xml:"id,attr"`
-	Label string     `xml:"label,attr,omitempty"`
-	Attrs *[]AttrVal `xml:"attvalues>attvalue,omiempty"`
-	Size  *Size      `xml:"http://www.gexf.net/1.2draft/viz size,omitempty"`
-	Pos   *Pos       `xml:"http://www.gexf.net/1.2draft/viz position,omitempty"`
-	Color *Color     `xml:"http://www.gexf.net/1.2draft/viz color,omitempty"`
+	ID    string    `xml:"id,attr"`
+	Label string    `xml:"label,attr,omitempty"`
+	Attrs []AttrVal `xml:"attvalues>attvalue,omiempty"`
+	Size  *Size     `xml:"http://www.gexf.net/1.2draft/viz size,omitempty"`
+	Pos   *Pos      `xml:"http://www.gexf.net/1.2draft/viz position,omitempty"`
+	Color *Color    `xml:"http://www.gexf.net/1.2draft/viz color,omitempty"`
 }
 
 type Size struct {
@@ -199,11 +199,11 @@ type AttrVal struct {
 }
 
 type Edge struct {
-	ID     string     `xml:"id,attr"`
-	Label  string     `xml:"label,attr,omitempty"`
-	Type   EdgeType   `xml:"type,attr,omitempty"`
-	Source string     `xml:"source,attr"`
-	Target string     `xml:"target,attr"`
-	Weight float64    `xml:"weight,attr,omitempty"`
-	Attrs  *[]AttrVal `xml:"attvalues>attvalue,omiempty"`
+	ID     string    `xml:"id,attr"`
+	Label  string    `xml:"label,attr,omitempty"`
+	Type   EdgeType  `xml:"type,attr,omitempty"`
+	Source string    `xml:"source,attr"`
+	Target string    `xml:"target,attr"`
+	Weight float64   `xml:"weight,attr,omitempty"`
+	Attrs  []AttrVal `xml:"attvalues>attvalue,omiempty"`
 }
