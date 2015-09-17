@@ -65,8 +65,8 @@ type Graph struct {
 	DefEdgeType EdgeType  `xml:"defaultedgetype,attr,omitempty"`
 
 	Attrs *Attributes `xml:"attributes,omitempty"`
-	Nodes Nodes       `xml:"nodes"`
-	Edges Edges       `xml:"edges"`
+	Nodes *Nodes      `xml:"nodes,omitempty"`
+	Edges *Edges      `xml:"edges,omitempty"`
 }
 
 type EdgeType int

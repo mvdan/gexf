@@ -53,7 +53,7 @@ func TestHelloWorld(t *testing.T) {
 	doc.Graph = Graph{
 		Mode:        Static,
 		DefEdgeType: Directed,
-		Nodes: Nodes{
+		Nodes: &Nodes{
 			Node: []Node{
 				{
 					ID:    "0",
@@ -65,7 +65,7 @@ func TestHelloWorld(t *testing.T) {
 				},
 			},
 		},
-		Edges: Edges{
+		Edges: &Edges{
 			Edge: []Edge{
 				{
 					ID:     "0",
@@ -106,7 +106,6 @@ func TestAttributes(t *testing.T) {
 				</attvalues>
 			</node>
 		</nodes>
-		<edges></edges>
 	</graph>
 </gexf>`
 	doc := New()
@@ -138,7 +137,7 @@ func TestAttributes(t *testing.T) {
 				},
 			},
 		},
-		Nodes: Nodes{
+		Nodes: &Nodes{
 			Node: []Node{
 				{
 					ID:    "0",
@@ -190,7 +189,6 @@ func TestViz(t *testing.T) {
 				<size xmlns="http://www.gexf.net/1.2draft/viz" value="20.5"></size>
 			</node>
 		</nodes>
-		<edges></edges>
 	</graph>
 </gexf>`
 	doc := New()
@@ -202,7 +200,7 @@ func TestViz(t *testing.T) {
 	doc.Graph = Graph{
 		Mode:        Static,
 		DefEdgeType: Directed,
-		Nodes: Nodes{
+		Nodes: &Nodes{
 			Node: []Node{
 				{
 					ID:    "0",
