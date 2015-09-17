@@ -114,7 +114,7 @@ func TestAttributes(t *testing.T) {
 		DefEdge: Directed,
 		Attrs: &Attributes{
 			Class: ClassNode,
-			Attribute: []Attribute{
+			Attrs: []Attr{
 				{
 					ID:    "0",
 					Title: "url",
@@ -137,7 +137,7 @@ func TestAttributes(t *testing.T) {
 			{
 				ID:    "0",
 				Label: "Gephi",
-				Attrs: &[]AttValue{
+				Attrs: &[]AttrVal{
 					{
 						For:   "0",
 						Value: "http://gephi.org",
@@ -151,7 +151,7 @@ func TestAttributes(t *testing.T) {
 			{
 				ID:    "1",
 				Label: "Webatlas",
-				Attrs: &[]AttValue{
+				Attrs: &[]AttrVal{
 					{
 						For:   "1",
 						Value: "2",

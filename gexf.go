@@ -157,11 +157,11 @@ func (t ClassType) MarshalText() ([]byte, error) {
 }
 
 type Attributes struct {
-	Class     ClassType   `xml:"class,attr"`
-	Attribute []Attribute `xml:"attribute"`
+	Class ClassType `xml:"class,attr"`
+	Attrs []Attr    `xml:"attribute"`
 }
 
-type Attribute struct {
+type Attr struct {
 	ID      string `xml:"id,attr"`
 	Title   string `xml:"title,attr"`
 	Type    string `xml:"type,attr"`
@@ -169,12 +169,12 @@ type Attribute struct {
 }
 
 type Node struct {
-	ID    string      `xml:"id,attr"`
-	Label string      `xml:"label,attr,omitempty"`
-	Attrs *[]AttValue `xml:"attvalues>attvalue,omiempty"`
-	Size  *Size       `xml:"http://www.gexf.net/1.2draft/viz size,omitempty"`
-	Pos   *Pos        `xml:"http://www.gexf.net/1.2draft/viz position,omitempty"`
-	Color *Color      `xml:"http://www.gexf.net/1.2draft/viz color,omitempty"`
+	ID    string     `xml:"id,attr"`
+	Label string     `xml:"label,attr,omitempty"`
+	Attrs *[]AttrVal `xml:"attvalues>attvalue,omiempty"`
+	Size  *Size      `xml:"http://www.gexf.net/1.2draft/viz size,omitempty"`
+	Pos   *Pos       `xml:"http://www.gexf.net/1.2draft/viz position,omitempty"`
+	Color *Color     `xml:"http://www.gexf.net/1.2draft/viz color,omitempty"`
 }
 
 type Size struct {
@@ -193,17 +193,17 @@ type Color struct {
 	B uint8 `xml:"b,attr"`
 }
 
-type AttValue struct {
+type AttrVal struct {
 	For   string `xml:"for,attr"`
 	Value string `xml:"value,attr"`
 }
 
 type Edge struct {
-	ID     string      `xml:"id,attr"`
-	Label  string      `xml:"label,attr,omitempty"`
-	Type   EdgeType    `xml:"type,attr,omitempty"`
-	Source string      `xml:"source,attr"`
-	Target string      `xml:"target,attr"`
-	Weight float64     `xml:"weight,attr,omitempty"`
-	Attrs  *[]AttValue `xml:"attvalues>attvalue,omiempty"`
+	ID     string     `xml:"id,attr"`
+	Label  string     `xml:"label,attr,omitempty"`
+	Type   EdgeType   `xml:"type,attr,omitempty"`
+	Source string     `xml:"source,attr"`
+	Target string     `xml:"target,attr"`
+	Weight float64    `xml:"weight,attr,omitempty"`
+	Attrs  *[]AttrVal `xml:"attvalues>attvalue,omiempty"`
 }
