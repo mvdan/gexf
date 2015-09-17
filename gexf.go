@@ -65,8 +65,8 @@ type Graph struct {
 	DefEdgeType EdgeType  `xml:"defaultedgetype,attr,omitempty"`
 
 	Attrs *Attributes `xml:"attributes,omitempty"`
-	Nodes *Nodes      `xml:"nodes,omitempty"`
-	Edges *Edges      `xml:"edges,omitempty"`
+	Nodes *[]Node     `xml:"nodes>node,omitempty"`
+	Edges *[]Edge     `xml:"edges>edge,omitempty"`
 }
 
 type EdgeType int
@@ -168,23 +168,13 @@ type Attribute struct {
 	Default string `xml:"default,omitempty"`
 }
 
-type Nodes struct {
-	Node  []Node `xml:"node"`
-	Count uint   `xml:"count,attr,omitempty"`
-}
-
-func (ns *Nodes) Append(n Node) {
-	ns.Node = append(ns.Node, n)
-	ns.Count = uint(len(ns.Node))
-}
-
 type Node struct {
-	ID        string     `xml:"id,attr"`
-	Label     string     `xml:"label,attr,omitempty"`
-	AttValues *AttValues `xml:"attvalues,omiempty"`
-	Size      *Size      `xml:"http://www.gexf.net/1.2draft/viz size,omitempty"`
-	Pos       *Pos       `xml:"http://www.gexf.net/1.2draft/viz position,omitempty"`
-	Color     *Color     `xml:"http://www.gexf.net/1.2draft/viz color,omitempty"`
+	ID        string      `xml:"id,attr"`
+	Label     string      `xml:"label,attr,omitempty"`
+	AttValues *[]AttValue `xml:"attvalues>attvalue,omiempty"`
+	Size      *Size       `xml:"http://www.gexf.net/1.2draft/viz size,omitempty"`
+	Pos       *Pos        `xml:"http://www.gexf.net/1.2draft/viz position,omitempty"`
+	Color     *Color      `xml:"http://www.gexf.net/1.2draft/viz color,omitempty"`
 }
 
 type Size struct {
@@ -203,31 +193,17 @@ type Color struct {
 	B uint8 `xml:"b,attr"`
 }
 
-type AttValues struct {
-	AttValue []AttValue `xml:"attvalue"`
-}
-
 type AttValue struct {
 	For   string `xml:"for,attr"`
 	Value string `xml:"value,attr"`
 }
 
-type Edges struct {
-	Edge  []Edge `xml:"edge"`
-	Count uint   `xml:"count,attr,omitempty"`
-}
-
-func (es *Edges) Append(e Edge) {
-	es.Edge = append(es.Edge, e)
-	es.Count = uint(len(es.Edge))
-}
-
 type Edge struct {
-	ID        string     `xml:"id,attr"`
-	Label     string     `xml:"label,attr,omitempty"`
-	Type      EdgeType   `xml:"type,attr,omitempty"`
-	Source    string     `xml:"source,attr"`
-	Target    string     `xml:"target,attr"`
-	Weight    float64    `xml:"weight,attr,omitempty"`
-	AttValues *AttValues `xml:"attvalues,omiempty"`
+	ID        string      `xml:"id,attr"`
+	Label     string      `xml:"label,attr,omitempty"`
+	Type      EdgeType    `xml:"type,attr,omitempty"`
+	Source    string      `xml:"source,attr"`
+	Target    string      `xml:"target,attr"`
+	Weight    float64     `xml:"weight,attr,omitempty"`
+	AttValues *[]AttValue `xml:"attvalues>attvalue,omiempty"`
 }

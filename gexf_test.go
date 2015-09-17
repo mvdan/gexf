@@ -53,25 +53,21 @@ func TestHelloWorld(t *testing.T) {
 	doc.Graph = Graph{
 		Mode:        Static,
 		DefEdgeType: Directed,
-		Nodes: &Nodes{
-			Node: []Node{
-				{
-					ID:    "0",
-					Label: "Hello",
-				},
-				{
-					ID:    "1",
-					Label: "World",
-				},
+		Nodes: &[]Node{
+			{
+				ID:    "0",
+				Label: "Hello",
+			},
+			{
+				ID:    "1",
+				Label: "World",
 			},
 		},
-		Edges: &Edges{
-			Edge: []Edge{
-				{
-					ID:     "0",
-					Source: "0",
-					Target: "1",
-				},
+		Edges: &[]Edge{
+			{
+				ID:     "0",
+				Source: "0",
+				Target: "1",
 			},
 		},
 	}
@@ -137,38 +133,32 @@ func TestAttributes(t *testing.T) {
 				},
 			},
 		},
-		Nodes: &Nodes{
-			Node: []Node{
-				{
-					ID:    "0",
-					Label: "Gephi",
-					AttValues: &AttValues{
-						AttValue: []AttValue{
-							{
-								For:   "0",
-								Value: "http://gephi.org",
-							},
-							{
-								For:   "2",
-								Value: "false",
-							},
-						},
+		Nodes: &[]Node{
+			{
+				ID:    "0",
+				Label: "Gephi",
+				AttValues: &[]AttValue{
+					{
+						For:   "0",
+						Value: "http://gephi.org",
+					},
+					{
+						For:   "2",
+						Value: "false",
 					},
 				},
-				{
-					ID:    "1",
-					Label: "Webatlas",
-					AttValues: &AttValues{
-						AttValue: []AttValue{
-							{
-								For:   "1",
-								Value: "2",
-							},
-							{
-								For:   "2",
-								Value: "true",
-							},
-						},
+			},
+			{
+				ID:    "1",
+				Label: "Webatlas",
+				AttValues: &[]AttValue{
+					{
+						For:   "1",
+						Value: "2",
+					},
+					{
+						For:   "2",
+						Value: "true",
 					},
 				},
 			},
@@ -200,13 +190,11 @@ func TestViz(t *testing.T) {
 	doc.Graph = Graph{
 		Mode:        Static,
 		DefEdgeType: Directed,
-		Nodes: &Nodes{
-			Node: []Node{
-				{
-					ID:    "0",
-					Label: "Hello",
-					Size:  &Size{Value: 20.5},
-				},
+		Nodes: &[]Node{
+			{
+				ID:    "0",
+				Label: "Hello",
+				Size:  &Size{Value: 20.5},
 			},
 		},
 	}
