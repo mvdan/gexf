@@ -112,24 +112,26 @@ func TestAttributes(t *testing.T) {
 	}
 	doc.Graph = Graph{
 		DefEdge: Directed,
-		Attrs: &Attributes{
-			Class: ClassNode,
-			Attrs: []Attr{
-				{
-					ID:    "0",
-					Title: "url",
-					Type:  "string",
-				},
-				{
-					ID:    "1",
-					Title: "indegree",
-					Type:  "float",
-				},
-				{
-					ID:      "2",
-					Title:   "frog",
-					Type:    "boolean",
-					Default: "true",
+		Attrs: []ClassAttrs{
+			{
+				Class: ClassNode,
+				Attrs: []Attr{
+					{
+						ID:    "0",
+						Title: "url",
+						Type:  "string",
+					},
+					{
+						ID:    "1",
+						Title: "indegree",
+						Type:  "float",
+					},
+					{
+						ID:      "2",
+						Title:   "frog",
+						Type:    "boolean",
+						Default: "true",
+					},
 				},
 			},
 		},

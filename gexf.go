@@ -64,9 +64,9 @@ type Graph struct {
 	IDType  IDType    `xml:"idtype,attr,omitempty"`
 	DefEdge EdgeType  `xml:"defaultedgetype,attr,omitempty"`
 
-	Attrs *Attributes `xml:"attributes,omitempty"`
-	Nodes *[]Node     `xml:"nodes>node,omitempty"`
-	Edges *[]Edge     `xml:"edges>edge,omitempty"`
+	Attrs []ClassAttrs `xml:"attributes,omitempty"`
+	Nodes *[]Node      `xml:"nodes>node,omitempty"`
+	Edges *[]Edge      `xml:"edges>edge,omitempty"`
 }
 
 type EdgeType int
@@ -156,7 +156,7 @@ func (t ClassType) MarshalText() ([]byte, error) {
 	return []byte(t.String()), nil
 }
 
-type Attributes struct {
+type ClassAttrs struct {
 	Class ClassType `xml:"class,attr"`
 	Attrs []Attr    `xml:"attribute"`
 }
