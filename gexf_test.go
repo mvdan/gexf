@@ -46,13 +46,13 @@ func TestHelloWorld(t *testing.T) {
 </gexf>`
 	doc := New()
 	doc.Meta = Meta{
-		LastModified: Date{time.Date(2009, time.March, 20, 0, 0, 0, 0, time.UTC)},
-		Creator:      "Gephi.org",
-		Description:  "A hello world! file",
+		LastMod: Date{time.Date(2009, time.March, 20, 0, 0, 0, 0, time.UTC)},
+		Creator: "Gephi.org",
+		Desc:    "A hello world! file",
 	}
 	doc.Graph = Graph{
-		Mode:        Static,
-		DefEdgeType: Directed,
+		Mode:    Static,
+		DefEdge: Directed,
 		Nodes: &[]Node{
 			{
 				ID:    "0",
@@ -106,12 +106,12 @@ func TestAttributes(t *testing.T) {
 </gexf>`
 	doc := New()
 	doc.Meta = Meta{
-		LastModified: Date{time.Date(2009, time.March, 20, 0, 0, 0, 0, time.UTC)},
-		Creator:      "Gephi.org",
-		Description:  "A Web network",
+		LastMod: Date{time.Date(2009, time.March, 20, 0, 0, 0, 0, time.UTC)},
+		Creator: "Gephi.org",
+		Desc:    "A Web network",
 	}
 	doc.Graph = Graph{
-		DefEdgeType: Directed,
+		DefEdge: Directed,
 		Attrs: &Attributes{
 			Class: ClassNode,
 			Attribute: []Attribute{
@@ -137,7 +137,7 @@ func TestAttributes(t *testing.T) {
 			{
 				ID:    "0",
 				Label: "Gephi",
-				AttValues: &[]AttValue{
+				Attrs: &[]AttValue{
 					{
 						For:   "0",
 						Value: "http://gephi.org",
@@ -151,7 +151,7 @@ func TestAttributes(t *testing.T) {
 			{
 				ID:    "1",
 				Label: "Webatlas",
-				AttValues: &[]AttValue{
+				Attrs: &[]AttValue{
 					{
 						For:   "1",
 						Value: "2",
@@ -183,13 +183,13 @@ func TestViz(t *testing.T) {
 </gexf>`
 	doc := New()
 	doc.Meta = Meta{
-		LastModified: Date{time.Date(2009, time.March, 20, 0, 0, 0, 0, time.UTC)},
-		Creator:      "Gephi.org",
-		Description:  "A hello world! file",
+		LastMod: Date{time.Date(2009, time.March, 20, 0, 0, 0, 0, time.UTC)},
+		Creator: "Gephi.org",
+		Desc:    "A hello world! file",
 	}
 	doc.Graph = Graph{
-		Mode:        Static,
-		DefEdgeType: Directed,
+		Mode:    Static,
+		DefEdge: Directed,
 		Nodes: &[]Node{
 			{
 				ID:    "0",

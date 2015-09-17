@@ -53,16 +53,16 @@ func (d *Date) UnmarshalText(text []byte) error {
 }
 
 type Meta struct {
-	LastModified Date   `xml:"lastmodifieddate,attr"`
-	Creator      string `xml:"creator,omitempty"`
-	Keywords     string `xml:"keywords,omitempty"`
-	Description  string `xml:"description,omitempty"`
+	LastMod  Date   `xml:"lastmodifieddate,attr"`
+	Creator  string `xml:"creator,omitempty"`
+	Keywords string `xml:"keywords,omitempty"`
+	Desc     string `xml:"description,omitempty"`
 }
 
 type Graph struct {
-	Mode        GraphMode `xml:"mode,attr,omitempty"`
-	IDType      IDType    `xml:"idtype,attr,omitempty"`
-	DefEdgeType EdgeType  `xml:"defaultedgetype,attr,omitempty"`
+	Mode    GraphMode `xml:"mode,attr,omitempty"`
+	IDType  IDType    `xml:"idtype,attr,omitempty"`
+	DefEdge EdgeType  `xml:"defaultedgetype,attr,omitempty"`
 
 	Attrs *Attributes `xml:"attributes,omitempty"`
 	Nodes *[]Node     `xml:"nodes>node,omitempty"`
@@ -169,12 +169,12 @@ type Attribute struct {
 }
 
 type Node struct {
-	ID        string      `xml:"id,attr"`
-	Label     string      `xml:"label,attr,omitempty"`
-	AttValues *[]AttValue `xml:"attvalues>attvalue,omiempty"`
-	Size      *Size       `xml:"http://www.gexf.net/1.2draft/viz size,omitempty"`
-	Pos       *Pos        `xml:"http://www.gexf.net/1.2draft/viz position,omitempty"`
-	Color     *Color      `xml:"http://www.gexf.net/1.2draft/viz color,omitempty"`
+	ID    string      `xml:"id,attr"`
+	Label string      `xml:"label,attr,omitempty"`
+	Attrs *[]AttValue `xml:"attvalues>attvalue,omiempty"`
+	Size  *Size       `xml:"http://www.gexf.net/1.2draft/viz size,omitempty"`
+	Pos   *Pos        `xml:"http://www.gexf.net/1.2draft/viz position,omitempty"`
+	Color *Color      `xml:"http://www.gexf.net/1.2draft/viz color,omitempty"`
 }
 
 type Size struct {
@@ -199,11 +199,11 @@ type AttValue struct {
 }
 
 type Edge struct {
-	ID        string      `xml:"id,attr"`
-	Label     string      `xml:"label,attr,omitempty"`
-	Type      EdgeType    `xml:"type,attr,omitempty"`
-	Source    string      `xml:"source,attr"`
-	Target    string      `xml:"target,attr"`
-	Weight    float64     `xml:"weight,attr,omitempty"`
-	AttValues *[]AttValue `xml:"attvalues>attvalue,omiempty"`
+	ID     string      `xml:"id,attr"`
+	Label  string      `xml:"label,attr,omitempty"`
+	Type   EdgeType    `xml:"type,attr,omitempty"`
+	Source string      `xml:"source,attr"`
+	Target string      `xml:"target,attr"`
+	Weight float64     `xml:"weight,attr,omitempty"`
+	Attrs  *[]AttValue `xml:"attvalues>attvalue,omiempty"`
 }
