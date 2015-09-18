@@ -144,7 +144,7 @@ func TestAttributes(t *testing.T) {
 		},
 		Nodes: []Node{
 			{
-				ID:    "0",
+				ID: "0",
 				Attrs: []AttrVal{
 					{
 						For:   "0",
@@ -157,7 +157,7 @@ func TestAttributes(t *testing.T) {
 				},
 			},
 			{
-				ID:    "1",
+				ID: "1",
 				Attrs: []AttrVal{
 					{
 						For:   "1",
@@ -226,6 +226,8 @@ func TestViz(t *testing.T) {
 				<attvalues></attvalues>
 				<parents></parents>
 				<size xmlns="http://www.gexf.net/1.2draft/viz" value="20.5"></size>
+				<position xmlns="http://www.gexf.net/1.2draft/viz" x="1.5" y="-3.4" z="0"></position>
+				<color xmlns="http://www.gexf.net/1.2draft/viz" r="50" g="100" b="200"></color>
 			</node>
 		</nodes>
 		<edges></edges>
@@ -242,6 +244,8 @@ func TestViz(t *testing.T) {
 			{
 				ID:    "0",
 				Size:  &Size{Value: 20.5},
+				Pos:   &Pos{X: 1.5, Y: -3.4},
+				Color: &Color{R: 50, G: 100, B: 200},
 			},
 		},
 	}
