@@ -46,7 +46,7 @@ func TestHelloWorld(t *testing.T) {
 			</node>
 		</nodes>
 		<edges>
-			<edge id="0" source="0" target="1">
+			<edge id="0" label="Foo" source="0" target="1">
 				<attvalues></attvalues>
 			</edge>
 		</edges>
@@ -76,6 +76,7 @@ func TestHelloWorld(t *testing.T) {
 				ID:     "0",
 				Source: "0",
 				Target: "1",
+				Label:  "Foo",
 			},
 		},
 	}
@@ -84,10 +85,7 @@ func TestHelloWorld(t *testing.T) {
 
 func TestAttributes(t *testing.T) {
 	enc := `<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
-	<meta lastmodifieddate="2009-03-20">
-		<creator>Gephi.org</creator>
-		<description>A Web network</description>
-	</meta>
+	<meta lastmodifieddate="2009-03-20"></meta>
 	<graph>
 		<attributes class="node">
 			<attribute id="0" title="url" type="string"></attribute>
@@ -97,14 +95,14 @@ func TestAttributes(t *testing.T) {
 			</attribute>
 		</attributes>
 		<nodes>
-			<node id="0" label="Gephi">
+			<node id="0">
 				<attvalues>
 					<attvalue for="0" value="http://gephi.org"></attvalue>
 					<attvalue for="2" value="false"></attvalue>
 				</attvalues>
 				<parents></parents>
 			</node>
-			<node id="1" label="Webatlas">
+			<node id="1">
 				<attvalues>
 					<attvalue for="1" value="2"></attvalue>
 					<attvalue for="2" value="true"></attvalue>
@@ -118,8 +116,6 @@ func TestAttributes(t *testing.T) {
 	doc := New()
 	doc.Meta = Meta{
 		LastMod: Date{time.Date(2009, time.March, 20, 0, 0, 0, 0, time.UTC)},
-		Creator: "Gephi.org",
-		Desc:    "A Web network",
 	}
 	doc.Graph = Graph{
 		DefEdge: Directed,
@@ -149,7 +145,6 @@ func TestAttributes(t *testing.T) {
 		Nodes: []Node{
 			{
 				ID:    "0",
-				Label: "Gephi",
 				Attrs: []AttrVal{
 					{
 						For:   "0",
@@ -163,7 +158,6 @@ func TestAttributes(t *testing.T) {
 			},
 			{
 				ID:    "1",
-				Label: "Webatlas",
 				Attrs: []AttrVal{
 					{
 						For:   "1",
@@ -182,10 +176,7 @@ func TestAttributes(t *testing.T) {
 
 func TestParents(t *testing.T) {
 	enc := `<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
-	<meta lastmodifieddate="2009-03-20">
-		<creator>Gephi.org</creator>
-		<description>A hello world! file</description>
-	</meta>
+	<meta lastmodifieddate="2009-03-20"></meta>
 	<graph>
 		<nodes>
 			<node id="0">
@@ -205,8 +196,6 @@ func TestParents(t *testing.T) {
 	doc := New()
 	doc.Meta = Meta{
 		LastMod: Date{time.Date(2009, time.March, 20, 0, 0, 0, 0, time.UTC)},
-		Creator: "Gephi.org",
-		Desc:    "A hello world! file",
 	}
 	doc.Graph = Graph{
 		Mode:    Static,
@@ -230,13 +219,10 @@ func TestParents(t *testing.T) {
 
 func TestViz(t *testing.T) {
 	enc := `<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
-	<meta lastmodifieddate="2009-03-20">
-		<creator>Gephi.org</creator>
-		<description>A hello world! file</description>
-	</meta>
+	<meta lastmodifieddate="2009-03-20"></meta>
 	<graph>
 		<nodes>
-			<node id="0" label="Hello">
+			<node id="0">
 				<attvalues></attvalues>
 				<parents></parents>
 				<size xmlns="http://www.gexf.net/1.2draft/viz" value="20.5"></size>
@@ -248,8 +234,6 @@ func TestViz(t *testing.T) {
 	doc := New()
 	doc.Meta = Meta{
 		LastMod: Date{time.Date(2009, time.March, 20, 0, 0, 0, 0, time.UTC)},
-		Creator: "Gephi.org",
-		Desc:    "A hello world! file",
 	}
 	doc.Graph = Graph{
 		Mode:    Static,
@@ -257,7 +241,6 @@ func TestViz(t *testing.T) {
 		Nodes: []Node{
 			{
 				ID:    "0",
-				Label: "Hello",
 				Size:  &Size{Value: 20.5},
 			},
 		},
