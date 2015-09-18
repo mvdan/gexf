@@ -169,12 +169,18 @@ type Attr struct {
 }
 
 type Node struct {
-	ID    string    `xml:"id,attr"`
-	Label string    `xml:"label,attr,omitempty"`
-	Attrs []AttrVal `xml:"attvalues>attvalue,omiempty"`
-	Size  *Size     `xml:"http://www.gexf.net/1.2draft/viz size,omitempty"`
-	Pos   *Pos      `xml:"http://www.gexf.net/1.2draft/viz position,omitempty"`
-	Color *Color    `xml:"http://www.gexf.net/1.2draft/viz color,omitempty"`
+	ID      string    `xml:"id,attr"`
+	Label   string    `xml:"label,attr,omitempty"`
+	Attrs   []AttrVal `xml:"attvalues>attvalue,omiempty"`
+	Parents []Parent  `xml:"parents>parent"`
+
+	Size  *Size  `xml:"http://www.gexf.net/1.2draft/viz size,omitempty"`
+	Pos   *Pos   `xml:"http://www.gexf.net/1.2draft/viz position,omitempty"`
+	Color *Color `xml:"http://www.gexf.net/1.2draft/viz color,omitempty"`
+}
+
+type Parent struct {
+	For string `xml:"for,attr"`
 }
 
 type Size struct {

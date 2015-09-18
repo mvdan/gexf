@@ -10,5 +10,5 @@ A [GEXF file format](http://gexf.net/format/) package.
 * [x] Associated data
 * [ ] Network and data dynamics
 * [ ] Hierarchy structure
-* [ ] Phylogeny structure
+* [x] Phylogeny structure
 * [x] Visualization

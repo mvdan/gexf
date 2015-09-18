@@ -38,9 +38,11 @@ func TestHelloWorld(t *testing.T) {
 		<nodes>
 			<node id="0" label="Hello">
 				<attvalues></attvalues>
+				<parents></parents>
 			</node>
 			<node id="1" label="World">
 				<attvalues></attvalues>
+				<parents></parents>
 			</node>
 		</nodes>
 		<edges>
@@ -100,12 +102,14 @@ func TestAttributes(t *testing.T) {
 					<attvalue for="0" value="http://gephi.org"></attvalue>
 					<attvalue for="2" value="false"></attvalue>
 				</attvalues>
+				<parents></parents>
 			</node>
 			<node id="1" label="Webatlas">
 				<attvalues>
 					<attvalue for="1" value="2"></attvalue>
 					<attvalue for="2" value="true"></attvalue>
 				</attvalues>
+				<parents></parents>
 			</node>
 		</nodes>
 		<edges></edges>
@@ -176,6 +180,54 @@ func TestAttributes(t *testing.T) {
 	doTest(t, enc, doc)
 }
 
+func TestParents(t *testing.T) {
+	enc := `<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
+	<meta lastmodifieddate="2009-03-20">
+		<creator>Gephi.org</creator>
+		<description>A hello world! file</description>
+	</meta>
+	<graph>
+		<nodes>
+			<node id="0">
+				<attvalues></attvalues>
+				<parents></parents>
+			</node>
+			<node id="1">
+				<attvalues></attvalues>
+				<parents>
+					<parent for="0"></parent>
+				</parents>
+			</node>
+		</nodes>
+		<edges></edges>
+	</graph>
+</gexf>`
+	doc := New()
+	doc.Meta = Meta{
+		LastMod: Date{time.Date(2009, time.March, 20, 0, 0, 0, 0, time.UTC)},
+		Creator: "Gephi.org",
+		Desc:    "A hello world! file",
+	}
+	doc.Graph = Graph{
+		Mode:    Static,
+		DefEdge: Directed,
+		Nodes: []Node{
+			{
+				ID: "0",
+			},
+			{
+				ID: "1",
+				Parents: []Parent{
+					{
+						For: "0",
+					},
+				},
+			},
+		},
+	}
+	doTest(t, enc, doc)
+}
+
 func TestViz(t *testing.T) {
 	enc := `<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
 	<meta lastmodifieddate="2009-03-20">
@@ -186,6 +238,7 @@ func TestViz(t *testing.T) {
 		<nodes>
 			<node id="0" label="Hello">
 				<attvalues></attvalues>
+				<parents></parents>
 				<size xmlns="http://www.gexf.net/1.2draft/viz" value="20.5"></size>
 			</node>
 		</nodes>
